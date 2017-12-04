@@ -9,6 +9,6 @@ RUN cd /tmp \
     && tar xvzf network_vis.tar.gz && rm -rf network_vis/images && mv network_vis ${KIBANA_PATH}/network_vis \
     && rm -rf /tmp/network_vis.tar.gz
 
-RUN kibana plugin --install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
+RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
 
 
