@@ -24,9 +24,9 @@ RUN cd /tmp \
    && mv kibana-time-plugin-5.5 ${PLUGIN_PATH}/kibana_time_plugin \
    && echo "{'name': 'kibana-time-plugin','version': '5.5.0'}" > ${PLUGIN_PATH}/kibana_time_plugin/package.json \
    && rm -rf /tmp/kpd-custom-theme.tar.gz
-
+   
 RUN kibana-plugin install https://github.com/Webiks/kibana-API/releases/download/5.5.0/kibana_api-0.2.0.zip
 
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
 
-
+RUN kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v5.5.0/prelert_swimlane_vis-5.5.0.zip
