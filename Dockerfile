@@ -12,8 +12,10 @@ RUN cd /tmp \
    && rm -rf /tmp/network_vis.tar.gz
 
 RUN cd /tmp \
-   && git clone https://github.com/ErikvdVen/kpd-custom-theme.git kpd_custom_theme \
-   && wget -O kpd_custom_theme/public/images/logo.png https://i.imgur.com/4b6mE12.png  \
-   && mv network_vis ${PLUGIN_PATH}/kpd_custom_theme
+   && wget -O kpd-custom-theme.tar.gz https://github.com/ErikvdVen/kpd-custom-theme/archive/v0.0.1.tar.gz \
+   && tar xvzf kpd-custom-theme.tar.gz && rm -rf kpd-custom-theme-0.0.1/images \
+   && wget -O kpd-custom-theme-0.0.1/public/images/logo.png https://i.imgur.com/4b6mE12.png  \
+   && mv kpd-custom-theme-0.0.1 ${PLUGIN_PATH}/kpd_custom_theme \
+   && rm -rf /tmp/kpd-custom-theme.tar.gz
 
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
