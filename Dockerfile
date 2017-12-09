@@ -17,5 +17,16 @@ RUN cd /tmp \
    && wget -O kpd-custom-theme-0.0.1/public/images/logo.png https://i.imgur.com/4b6mE12.png  \
    && mv kpd-custom-theme-0.0.1 ${PLUGIN_PATH}/kpd_custom_theme \
    && rm -rf /tmp/kpd-custom-theme.tar.gz
+   
+RUN cd /tmp \
+   && wget -O kibana_time_plugin.tar.gz https://github.com/nreese/kibana-time-plugin/archive/5.5.tar.gz \
+   && tar xvzf kibana_time_plugin.tar.gz \
+   && mv kibana-time-plugin-5.5 ${PLUGIN_PATH}/kibana_time_plugin \
+   && echo "{'name': 'kibana-time-plugin','version': '5.5.0'}" > ${PLUGIN_PATH}/kibana_time_plugin/package.json \
+   && rm -rf /tmp/kpd-custom-theme.tar.gz
+
+RUN kibana-plugin install https://github.com/Webiks/kibana-API/releases/download/5.5.0/kibana_api-0.2.0.zip
 
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
+
+
