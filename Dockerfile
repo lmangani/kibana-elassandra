@@ -6,6 +6,8 @@ ENV KIBANA_VERSION="5.5.0"
 ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
 
+RUN yum update -y && yum install -y zip unzip && yum clean all
+
 RUN cd /tmp \
    && wget -O network_vis.tar.gz https://github.com/dlumbrer/kbn_network/releases/download/5.5.X_5.6.X/network_vis.tar.gz \
    && tar xvzf network_vis.tar.gz && rm -rf network_vis/images && mv network_vis ${PLUGIN_PATH}/network_vis \
