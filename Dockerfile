@@ -29,11 +29,12 @@ RUN cd /tmp \
    
 RUN cd /tmp \
    && wget https://github.com/codingchili/kbn-authentication-plugin/releases/download/1.0.0/kbn-authentication-plugin.zip \
-   && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
-   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" kibana/kbn-authentication-plugn/package.json \
-   && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
+   && mkdir -p kibana/kbn-authentication-plugin
+   && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugin/package.json \
+   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" kibana/kbn-authentication-plugin/package.json \
+   && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugin/package.json \
    && kibana-plugin install file:///tmp/kbn-authentication-plugin.zip \
-   && rm -rf /tmp/kbn-authentication-plugin.zip
+   && rm -rf /tmp/*
    
 RUN kibana-plugin install https://github.com/Webiks/kibana-API/releases/download/5.5.0/kibana_api-0.2.0.zip
 
