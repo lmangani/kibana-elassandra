@@ -32,8 +32,8 @@ RUN cd /tmp \
    && mkdir -p kibana/kbn-authentication-plugn \
    && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json > kibana/kbn-authentication-plugn/package.json \
    && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kbn-authentication-plugn/package.json \
-   && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
-   && kibana-plugin install file:///tmp/kbn-authentication-plugin.zip \
+   && zip kbn-authentication-plugin-5.zip kibana/kbn-authentication-plugn/package.json \
+   && kibana-plugin install file:///tmp/kbn-authentication-plugin-5.zip \
    && rm -rf /tmp/*
    
 RUN kibana-plugin install https://github.com/Webiks/kibana-API/releases/download/5.5.0/kibana_api-0.2.0.zip
