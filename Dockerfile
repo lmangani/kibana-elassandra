@@ -25,8 +25,18 @@ RUN cd /tmp \
    && echo "{'name': 'kibana-time-plugin','version': '5.5.0'}" > ${PLUGIN_PATH}/kibana_time_plugin/package.json \
    && rm -rf /tmp/kpd-custom-theme.tar.gz
    
+RUN cd /tmp \
+   && wget https://github.com/codingchili/kbn-authentication-plugin/releases/download/1.0.0/kbn-authentication-plugin.zip \
+   && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
+   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" kibana/kbn-authentication-plugn/package.json \
+   && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
+   && kibana-plugin install file:///tmp/kbn-authentication-plugin.zip \
+   && rm -rf /tmp/kbn-authentication-plugin.zip
+   
 RUN kibana-plugin install https://github.com/Webiks/kibana-API/releases/download/5.5.0/kibana_api-0.2.0.zip
 
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
 
 RUN kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v5.5.0/prelert_swimlane_vis-5.5.0.zip
+
+RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
