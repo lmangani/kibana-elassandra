@@ -24,7 +24,7 @@ RUN cd /tmp \
    && wget -O kibana_time_plugin.tar.gz https://github.com/nreese/kibana-time-plugin/archive/5.5.tar.gz \
    && tar xvzf kibana_time_plugin.tar.gz \
    && mv kibana-time-plugin-5.5 ${PLUGIN_PATH}/kibana_time_plugin \
-   && echo "{'name': 'kibana-time-plugin','version': '5.5.0'}" > ${PLUGIN_PATH}/kibana_time_plugin/package.json \
+   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" ${PLUGIN_PATH}/kibana_time_plugin/package.json \
    && rm -rf /tmp/kpd-custom-theme.tar.gz
    
 RUN cd /tmp \
@@ -34,9 +34,9 @@ RUN cd /tmp \
    && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/config.json > kibana/kbn-authentication-plugn/config.json \
    && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kbn-authentication-plugn/package.json \
    && sed -Ei "s/(\"kbnVersion\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kbn-authentication-plugn/config.json \
-   && zip kbn-authentication-plugin-5.zip kibana/kbn-authentication-plugn/package.json \
-   && zip kbn-authentication-plugin-5.zip kibana/kbn-authentication-plugn/config.json \
-   && kibana-plugin install file:///tmp/kbn-authentication-plugin-5.zip \
+   && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
+   && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/config.json \
+   && kibana-plugin install file:///tmp/kbn-authentication-plugin.zip \
    && rm -rf /tmp/*
    
 RUN cd /tmp \
@@ -44,8 +44,8 @@ RUN cd /tmp \
    && mkdir -p kibana/kibi_timeline_vis-5.5.3 \
    && unzip -p kibi_timeline_vis.zip kibana/kibi_timeline_vis-5.5.3/package.json > kibana/kibi_timeline_vis-5.5.3/package.json \
    && sed -Ei "s/5.5.3/5.5.0/g" kibana/kibi_timeline_vis-5.5.3/package.json \
-   && zip kibi_timeline_vis-5.zip kibana/kibi_timeline_vis-5.5.3/package.json \
-   && kibana-plugin install file:///tmp/kibi_timeline_vis-5.zip \
+   && zip kibi_timeline_vis.zip kibana/kibi_timeline_vis-5.5.3/package.json \
+   && kibana-plugin install file:///tmp/kibi_timeline_vis.zip \
    && rm -rf /tmp/*
    
    
