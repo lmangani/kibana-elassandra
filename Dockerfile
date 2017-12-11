@@ -33,6 +33,7 @@ RUN cd /tmp \
  #   && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json > kibana/kbn-authentication-plugn/package.json \
  #   && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/config.json > kibana/kbn-authentication-plugn/config.json \
    && unzip kbn-authentication-plugin.zip \
+   && cd kibana/kbn-authentication-plugn && npm install --arch=ia32 && cd ../.. \
    && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kbn-authentication-plugn/package.json \
    && sed -Ei "s/(\"kbnVersion\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kbn-authentication-plugn/config.json \
  #  && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
