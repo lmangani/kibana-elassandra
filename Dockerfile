@@ -56,3 +56,6 @@ RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/dow
 RUN kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v5.5.0/prelert_swimlane_vis-5.5.0.zip
 
 RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
+
+# Hotpatch to keep SENTINL Watcher IDs < 11 chars
+RUN sed -Ei "s/substr(2, 100)/substr(2, 3)/g" ${PLUGIN_PATH}/sentinl/public/services/watcher.js
