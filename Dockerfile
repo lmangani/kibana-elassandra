@@ -38,10 +38,10 @@ RUN cd /tmp \
    
 RUN cd /tmp \
    && wget -O kibi_timeline_vis.zip https://github.com/sirensolutions/kibi_timeline_vis/releases/download/5.5.3/kibi_timeline_vis-5.5.3.zip \
-   && mkdir -p kibana/kibi_timeline_vis \
-   && unzip -p kibi_timeline_vis.zip kibana/kibi_timeline_vis/package.json > kibana/kibi_timeline_vis/package.json \
-   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kibi_timeline_vis/package.json \
-   && zip kibi_timeline_vis-5.zip kibana/kibi_timeline_vis/package.json \
+   && mkdir -p kibana/kibi_timeline_vis-5.5.3 \
+   && unzip -p kibi_timeline_vis.zip kibana/kibi_timeline_vis-5.5.3/package.json > kibana/kibi_timeline_vis-5.5.3/package.json \
+   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kibi_timeline_vis-5.5.3/package.json \
+   && zip kibi_timeline_vis-5.zip kibana/kibi_timeline_vis-5.5.3/package.json \
    && kibana-plugin install file:///tmp/kibi_timeline_vis-5.zip \
    && rm -rf /tmp/*
    
