@@ -37,8 +37,9 @@ RUN cd /tmp \
    && sed -Ei "s/(\"kbnVersion\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kbn-authentication-plugn/config.json \
  #  && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
  #  && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/config.json \
-   && tar cvfz /tmp/kbn-authentication-plugin.tar.gz kibana \
-   && kibana-plugin install file:///tmp/kbn-authentication-plugin.tar.gz \
+   && zip kbn-authentication-plugin5.zip ./kibana \
+   && kibana-plugin install file:///tmp/kbn-authentication-plugin5.zip \
+   && sleep 2 \
    && rm -rf /tmp/*
    
 RUN cd /tmp \
