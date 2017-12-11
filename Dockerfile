@@ -28,22 +28,6 @@ RUN cd /tmp \
    && rm -rf /tmp/kpd-custom-theme.tar.gz
    
 RUN cd /tmp \
-   && wget https://github.com/codingchili/kbn-authentication-plugin/releases/download/1.0.0/kbn-authentication-plugin.zip \
- #   && mkdir -p kibana/kbn-authentication-plugn \
- #   && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json > kibana/kbn-authentication-plugn/package.json \
- #   && unzip -p kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/config.json > kibana/kbn-authentication-plugn/config.json \
-   && unzip kbn-authentication-plugin.zip \
-   && cd kibana/kbn-authentication-plugn && ${PLUGIN_PATH}/node/bin/npm install --arch=ia32 && cd ../.. \
-   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kbn-authentication-plugn/package.json \
-   && sed -Ei "s/(\"kbnVersion\":).*$/\1 \"$KIBANA_VERSION\",/" kibana/kbn-authentication-plugn/config.json \
- #  && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/package.json \
- #  && zip kbn-authentication-plugin.zip kibana/kbn-authentication-plugn/config.json \
-   && zip -r kbn-authentication-plugin5.zip kibana \
-   && kibana-plugin install file:///tmp/kbn-authentication-plugin5.zip \
-   && sleep 2 \
-   && rm -rf /tmp/*
-   
-RUN cd /tmp \
    && wget -O kibi_timeline_vis.zip https://github.com/sirensolutions/kibi_timeline_vis/releases/download/5.5.3/kibi_timeline_vis-5.5.3.zip \
    && mkdir -p kibana/kibi_timeline_vis-5.5.3 \
    && unzip -p kibi_timeline_vis.zip kibana/kibi_timeline_vis-5.5.3/package.json > kibana/kibi_timeline_vis-5.5.3/package.json \
@@ -56,10 +40,11 @@ RUN cd /tmp \
 RUN kibana-plugin install https://github.com/Webiks/kibana-API/releases/download/5.5.0/kibana_api-0.2.0.zip
 
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
+# Hotpatch to keep SENTINL Watcher IDs < 11 chars
+RUN sed -Ei "s/substr(2, 100)/substr(2, 3)/g" ${PLUGIN_PATH}/sentinl/public/services/watcher.js
 
 RUN kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v5.5.0/prelert_swimlane_vis-5.5.0.zip
 
 RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
 
-# Hotpatch to keep SENTINL Watcher IDs < 11 chars
-RUN sed -Ei "s/substr(2, 100)/substr(2, 3)/g" ${PLUGIN_PATH}/sentinl/public/services/watcher.js
+
