@@ -1,0 +1,28 @@
+version: '2.1'
+# Elassandra Single-Node + Kibana Steroids
+services:
+  elassandra-seed:
+    container_name: elassandra-seed-node
+    image: strapdata/elassandra:5.5.0.9
+    ports:
+      - "9042:9042"   # Native transport
+      - "7199:7199"   # JMX
+      - "9160:9160"   # Thrift clients
+      - "9200:9200"   # ES clients
+    healthcheck:
+        test: cqlsh -e "?" --cqlversion="3.4.4"
+        interval: 5s
+        timeout: 10s
+        retries: 10
+
+  elassandra-kibana:
+    container_name: elassandra-kibana
+    image: qxip/kibana-steroids:auth
+    ports:
+      - "5601:5601"
+    environment:
+      - "ELASTICSEARCH_URL=http://elassandra-seed:9200"
+      - "XPACK_MONITORING_ENABLED=false"
+    depends_on:
+      elassandra-seed:
+        condition: service_healthy
