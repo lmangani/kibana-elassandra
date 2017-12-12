@@ -40,7 +40,7 @@ RUN cd /tmp \
    
 RUN cd /tmp \
    && wget -O mapster.zip  https://github.com/elastickent/mapster/archive/master.zip \
-   && unzip master.zip && mv mapster-master ${PLUGIN_PATH}/mapster \
+   && unzip mapster.zip && mv mapster-master ${PLUGIN_PATH}/mapster \
    && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" ${PLUGIN_PATH}/mapster/package.json \
    && rm -rf /tmp/*
    
