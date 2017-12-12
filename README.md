@@ -29,3 +29,13 @@ docker-compose up -d
 
 ### Vis
 <img src="https://user-images.githubusercontent.com/1423657/33860643-156d76aa-deda-11e7-8557-7e5f0d5b0e3c.png" width="600" />
+
+
+##### Acknowledgement
+Apache Cassandra, Apache Lucene, Apache, Lucene, Solr, TinkerPop, and Cassandra are trademarks of the Apache Software Foundation or its subsidiaries in Canada, the United States and/or other countries.
+
+Elasticsearch and Kibana are trademarks of Elasticsearch BV, registered in the U.S. and in other countries.
+
+Elassandra is a trademark of Strapdata SAS.
+
+Sentinl is a trademark of QXIP BV and Siren Solutions.
