@@ -38,6 +38,12 @@ RUN cd /tmp \
    && kibana-plugin install file:///tmp/kibi_timeline_vis.zip \
    && rm -rf /tmp/*
    
+RUN cd /tmp \
+   && wget -O mapster.zip  https://github.com/elastickent/mapster/archive/master.zip \
+   && unzip master.zip && mv mapster-master ${PLUGIN_PATH}/mapster \
+   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" ${PLUGIN_PATH}/mapster/package.json \
+   && rm -rf /tmp/*
+   
 RUN kibana-plugin install https://github.com/Webiks/kibana-API/releases/download/5.5.0/kibana_api-0.2.0.zip
 
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
