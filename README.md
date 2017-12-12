@@ -1,6 +1,4 @@
-<img src="https://user-images.githubusercontent.com/1423657/33860929-5aae34f6-dedb-11e7-8d20-c09c3a53394c.png" width="80" />
-
-# Kibana-on-Steroids
+# <img src="https://user-images.githubusercontent.com/1423657/33860929-5aae34f6-dedb-11e7-8d20-c09c3a53394c.png" width="50" />Kibana-on-Steroids
 ### Optimized for [Elassandra](github.com/strapdata/elassandra)
 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-on-steroids&branch=master&pipelineName=kibana-on-steroids&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-on-steroids/builds?filter=trigger:build;branch:master;service:5a25b41734a1310001196d8e~kibana-on-steroids)
