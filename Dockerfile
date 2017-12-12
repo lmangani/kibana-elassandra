@@ -17,7 +17,7 @@ RUN cd /tmp \
    && cd  ${PLUGIN_PATH}/kbn-authentication-plugin \
    && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" package.json \
    && sed -Ei "s/(\"kbnVersion\":).*$/\1 \"$KIBANA_VERSION\",/" config.json \
-   && npm install \
+   && rm -rf node_modules && npm install \
    && rm -rf /tmp/*.zip
    
 RUN cd /tmp \
