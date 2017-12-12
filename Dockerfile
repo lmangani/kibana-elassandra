@@ -55,6 +55,9 @@ RUN kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/release
 
 RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
 
-RUN kibana-plugin install https://github.com/dlumbrer/kbn_searchtables/releases/download/5.5.X-3/kbn_searchtables.zip
+RUN cd /tmp \
+  && wget https://github.com/dlumbrer/kbn_searchtables/releases/download/5.5.X-3/kbn_searchtables.zip \
+  && unzip kbn_searchtables.zip && mv kbn_searchtables ${PLUGIN_PATH}/kbn_searchtables \
+  && rm -rf /tmp/*
 
 RUN kibana-plugin install https://github.com/clamarque/kibana_health_metric_vis/releases/download/v5.5/kibana_health_metric_vis-5.5.0.zip
