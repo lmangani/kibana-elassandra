@@ -7,7 +7,7 @@ ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
 
 RUN apt-get update && apt-get install -y nodejs npm zip unzip curl build-essential libssl-dev libffi-dev python-dev \
-   && curl -sL https://deb.nodesource.com/setup_8.x | sudo bash - \
+   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
    && ln -s /usr/bin/nodejs /usr/bin/node && apt-get clean && npm install npm@latest -g && npm install -g bower
 
 RUN cd /tmp \
