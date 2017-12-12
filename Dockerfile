@@ -16,7 +16,8 @@ RUN cd /tmp \
 RUN cd /tmp \
    && wget -O kpd-custom-theme.tar.gz https://github.com/ErikvdVen/kpd-custom-theme/archive/v0.0.1.tar.gz \
    && tar xvzf kpd-custom-theme.tar.gz && rm -rf kpd-custom-theme-0.0.1/images \
-   && wget -O kpd-custom-theme-0.0.1/public/images/logo.png https://i.imgur.com/4b6mE12.png  \
+   && wget -O kpd-custom-theme-0.0.1/public/images/logo.png https://user-images.githubusercontent.com/1423657/33860929-5aae34f6-dedb-11e7-8d20-c09c3a53394c.png \
+   && wget -O kpd-custom-theme-0.0.1/public/images/logo-white.png https://user-images.githubusercontent.com/1423657/33860928-5a901d36-dedb-11e7-8ef4-45f5b31cd98e.png \
    && mv kpd-custom-theme-0.0.1 ${PLUGIN_PATH}/kpd_custom_theme \
    && rm -rf /tmp/kpd-custom-theme.tar.gz
    
