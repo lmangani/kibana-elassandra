@@ -62,7 +62,7 @@ RUN cd /tmp \
 
 RUN cd /tmp \
    && wget -O kbn_sankey_vis.zip  https://github.com/LeonAgmonNacht/kbn_sankey_vis/archive/master.zip \
-   && unzip kbn_sankey_vis.zip && mv kbn_sankey_vis ${PLUGIN_PATH}/mapster \
+   && unzip kbn_sankey_vis.zip && mv kbn_sankey_vis-master ${PLUGIN_PATH}/kbn_sankey_vis \
    && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" ${PLUGIN_PATH}/kbn_sankey_vis/package.json \
    && rm -rf /tmp/*
 
