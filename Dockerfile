@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y nodejs npm zip unzip curl nodejs npm bu
 
 RUN cd /tmp \
    && wget -O kbn-authentication-plugin.zip https://github.com/codingchili/kbn-authentication-plugin/releases/download/1.0.0/kbn-authentication-plugin.zip \
+   && unzip kbn-authentication-plugin.zip \
    && mv kibana/kbn-authentication-plugn ${PLUGIN_PATH}/kbn-authentication-plugin \ 
    && cd  ${PLUGIN_PATH}/kbn-authentication-plugin \
    && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" package.json \
