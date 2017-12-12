@@ -4,6 +4,8 @@ services:
   elassandra-seed:
     container_name: elassandra-seed-node
     image: strapdata/elassandra:5.5.0.9
+    environment:
+      - "JVM_OPTS=-Des.drop_on_delete_index=true"  # Default: false.
     ports:
       - "9042:9042"   # Native transport
       - "7199:7199"   # JMX
