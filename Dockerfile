@@ -60,11 +60,4 @@ RUN cd /tmp \
   && unzip kbn_searchtables.zip && mv kbn_searchtables ${PLUGIN_PATH}/kbn_searchtables \
   && rm -rf /tmp/*
 
-RUN cd /tmp \
-   && wget -O kbn_sankey_vis.zip  https://github.com/LeonAgmonNacht/kbn_sankey_vis/archive/master.zip \
-   && unzip kbn_sankey_vis.zip && mv kbn_sankey_vis-master ${PLUGIN_PATH}/kbn_sankey_vis \
-   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" ${PLUGIN_PATH}/kbn_sankey_vis/package.json \
-   && cd ${PLUGIN_PATH}/kbn_sankey_vis && npm install \
-   && rm -rf /tmp/*
-
 RUN kibana-plugin install https://github.com/clamarque/kibana_health_metric_vis/releases/download/v5.5/kibana_health_metric_vis-5.5.0.zip
