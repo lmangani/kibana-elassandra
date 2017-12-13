@@ -7,7 +7,7 @@ ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
 
 RUN apt-get update && apt-get install -y nodejs npm zip unzip curl nodejs npm && ln -s /usr/bin/nodejs /usr/bin/node && apt-get clean && npm install -g bower
-
+   
 RUN cd /tmp \
    && wget -O network_vis.tar.gz https://github.com/dlumbrer/kbn_network/releases/download/5.5.X_5.6.X/network_vis.tar.gz \
    && tar xvzf network_vis.tar.gz && rm -rf network_vis/images && mv network_vis ${PLUGIN_PATH}/network_vis \
@@ -38,6 +38,12 @@ RUN cd /tmp \
    && kibana-plugin install file:///tmp/kibi_timeline_vis.zip \
    && rm -rf /tmp/*
    
+RUN cd /tmp \
+   && wget -O mapster.zip  https://github.com/elastickent/mapster/archive/master.zip \
+   && unzip mapster.zip && mv mapster-master ${PLUGIN_PATH}/mapster \
+   && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" ${PLUGIN_PATH}/mapster/package.json \
+   && rm -rf /tmp/*
+   
 RUN kibana-plugin install https://github.com/Webiks/kibana-API/releases/download/5.5.0/kibana_api-0.2.0.zip
 
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
@@ -46,5 +52,17 @@ RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/dow
 RUN sed -Ei "s/substr(2, 100)/substr(2, 3)/g" ${PLUGIN_PATH}/sentinl/public/services/watcher.js
 
 RUN kibana-plugin install https://github.com/prelert/kibana-swimlane-vis/releases/download/v5.5.0/prelert_swimlane_vis-5.5.0.zip
+
+RUN cd /tmp \
+  && wget https://github.com/dlumbrer/kbn_searchtables/releases/download/5.5.X-3/kbn_searchtables.zip \
+  && unzip kbn_searchtables.zip && mv kbn_searchtables ${PLUGIN_PATH}/kbn_searchtables \
+  && rm -rf /tmp/*
+  
+RUN cd /tmp \
+  && wget -O kbn_sankey_vis.zip  https://github.com/LeonAgmonNacht/kbn_sankey_vis/archive/master.zip \
+  && unzip kbn_sankey_vis.zip && mv kbn_sankey_vis-master ${PLUGIN_PATH}/kbn_sankey_vis \
+  && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\",/" ${PLUGIN_PATH}/kbn_sankey_vis/package.json \
+  && cd ${PLUGIN_PATH}/kbn_sankey_vis && npm install \
+  && rm -rf /tmp/*
 
 RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
