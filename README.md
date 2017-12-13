@@ -3,10 +3,15 @@
 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-on-steroids&branch=master&pipelineName=kibana-on-steroids&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-on-steroids/builds?filter=trigger:build;branch:master;service:5a25b41734a1310001196d8e~kibana-on-steroids)
 
-##### Usage
+##### Usage (compose)
 ```
 docker-compose up -d
 ```
+##### Usage (manual)
+```
+docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/kibana-steroids:master
+```
+
 ##### Features
 
   * **Kibana** 5.5.0
