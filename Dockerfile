@@ -66,3 +66,12 @@ RUN cd /tmp \
   && rm -rf /tmp/*
 
 RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
+
+RUN cd /tmp \
+  && wget https://github.com/bondib/kibana-iframe-communicator-plugin/releases/download/v5.x/kibana-iframe-communicator-plugin-1.0.1.zip \
+  && unzip "kibana-iframe-communicator-plugin-1.0.1.zip" "kibana/kibana-iframe-communicator-plugin/package.json" -d /tmp \
+  && line='s/KIBANA-VERSION/'$KIBANA_VERSION'/' \
+  && sed -i -e $line kibana/kibana-iframe-communicator-plugin/package.json \
+  && zip --update "kibana-iframe-communicator-plugin-1.0.1.zip" "kibana/kibana-iframe-communicator-plugin/package.json" \
+  && kibana-plugin install file:///tmp/kibana-iframe-communicator-plugin-1.0.1.zip \
+  && rm -r kibana-iframe-communicator-plugin-1.0.1.zip
