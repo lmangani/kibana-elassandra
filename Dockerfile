@@ -57,6 +57,13 @@ RUN cd /tmp \
   && wget https://github.com/dlumbrer/kbn_searchtables/releases/download/5.5.X-3/kbn_searchtables.zip \
   && unzip kbn_searchtables.zip && mv kbn_searchtables ${PLUGIN_PATH}/kbn_searchtables \
   && rm -rf /tmp/*
+  
+RUN cd /tmp \
+  && wget -O kbn_sankey_vis.zip  https://github.com/LeonAgmonNacht/kbn_sankey_vis/archive/master.zip \
+  && unzip kbn_sankey_vis.zip && mv kbn_sankey_vis-master ${PLUGIN_PATH}/kbn_sankey_vis \
+  && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" ${PLUGIN_PATH}/kbn_sankey_vis/package.json \
+  && cd ${PLUGIN_PATH}/kbn_sankey_vis && npm install \
+  && rm -rf /tmp/*
 
 RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
 
