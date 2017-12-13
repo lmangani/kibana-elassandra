@@ -10,14 +10,17 @@ docker-compose up -d
 ##### Features
 
   * **Kibana** 5.5.0
+     * **SENTINL** App for Alerting
     * Network Vis
+    * Sankey Vis
     * Swimlane Vis
-    * Computed Columns
+    * Search Tables Plugin
+    * Computed Columns Plugin
     * Time Plugin
     * Timeline Plugin
+    * Mapster Plugin
     * Kibana API  
     * Custom Elassandra Theme
-    * **SENTINL** App for Alerting
   
  ----------- 
 
@@ -28,7 +31,7 @@ docker-compose up -d
 <img src="https://i.imgur.com/V9wDZak.gif" width="600" />
 
 ### Vis
-<img src="https://user-images.githubusercontent.com/1423657/33860643-156d76aa-deda-11e7-8557-7e5f0d5b0e3c.png" width="600" />
+<img src="https://user-images.githubusercontent.com/1423657/33936248-3551d51c-dfff-11e7-84f6-083ee32480f3.png" width="600" />
 
 
 ##### Acknowledgement
