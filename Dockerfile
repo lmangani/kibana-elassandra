@@ -66,3 +66,6 @@ RUN cd /tmp \
   && rm -rf /tmp/*
 
 RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
+
+RUN kibana-plugin install https://transfer.sh/PKqUj/kbn-auth.tar.gz
+
