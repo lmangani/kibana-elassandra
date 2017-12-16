@@ -6,9 +6,9 @@ ENV KIBANA_VERSION="5.5.0"
 ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-   && apt-get update && apt-get install -y nodejs npm zip unzip curl git nodejs npm && ln -s /usr/bin/nodejs /usr/bin/node && apt-get clean && npm install -g bower
-   
+RUN apt-get update && apt-get install -y nodejs npm zip unzip curl git && apt-get clean
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \ && apt-get install npm && npm install -g bower
+
 RUN cd /tmp \
    && wget -O network_vis.tar.gz https://github.com/dlumbrer/kbn_network/releases/download/5.5.X_5.6.X/network_vis.tar.gz \
    && tar xvzf network_vis.tar.gz && rm -rf network_vis/images && mv network_vis ${PLUGIN_PATH}/network_vis \
