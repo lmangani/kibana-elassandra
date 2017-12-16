@@ -1,12 +1,13 @@
 FROM kibana:5.5.0
 LABEL maintainer "Lorenzo Mangani <lorenzo.mangani@gmail.com>"
 
-ENV CONTAINER_VERSION="5.5.0.2"
+ENV CONTAINER_VERSION="5.5.0.3"
 ENV KIBANA_VERSION="5.5.0"
 ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
 
-RUN apt-get update && apt-get install -y nodejs npm zip unzip curl git nodejs npm && ln -s /usr/bin/nodejs /usr/bin/node && apt-get clean && npm install -g bower
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+   && apt-get update && apt-get install -y nodejs npm zip unzip curl git nodejs npm && ln -s /usr/bin/nodejs /usr/bin/node && apt-get clean && npm install -g bower
    
 RUN cd /tmp \
    && wget -O network_vis.tar.gz https://github.com/dlumbrer/kbn_network/releases/download/5.5.X_5.6.X/network_vis.tar.gz \
@@ -70,7 +71,12 @@ RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/d
 RUN cd /tmp \
   && curl https://transfer.sh/ik4LP/kbn-auth-plug.zip -o kbn-auth.zip \
   && kibana-plugin install file:///tmp/kbn-auth.zip \
-  && chmod 775 /usr/share/kibana/plugins/kbn-authentication-plugin/users.json \
+  && chmod 775 ${PLUGIN_PATH}/kbn-authentication-plugin/users.json \
+  && sed -Ei "s/(\"enabled\":).*$/\1 \"false\",/" ${PLUGIN_PATH}/kbn-authentication-plugin/config.json \
   && rm -rf /tmp/*
-  
+
 RUN chown -R kibana:kibana /usr/share/kibana
+
+# Alias ADDUSER command (eval $ADDUSER username password)
+ENV ADDUSER="node /usr/share/kibana/plugins/kbn-authentication-plugin/adduser.js"
+RUN alias adduser="node /usr/share/kibana/plugins/kbn-authentication-plugin/adduser.js"
