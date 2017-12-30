@@ -9,7 +9,7 @@ ENV PLUGIN_PATH=/usr/share/kibana/plugins
 RUN apt-get update && apt-get install -y zip unzip curl \
   && curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt-get install nodejs \
-  && ln -s /usr/bin/nodejs /usr/bin/node && apt-get clean && npm install -g bower
+  && apt-get clean && npm install -g npm && npm install -g bower
    
 RUN cd /tmp \
    && wget -O network_vis.tar.gz https://github.com/dlumbrer/kbn_network/releases/download/5.5.X_5.6.X/network_vis.tar.gz \
