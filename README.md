@@ -1,7 +1,7 @@
-# Kibana-on-Steroids
-### Optimized for [Elassandra](github.com/strapdata/elassandra)
+# Kibana for [Elassandra](github.com/strapdata/elassandra)
+#### Dockerized Kibana 5.5. on Steroids, Optimized for [Elassandra](github.com/strapdata/elassandra)
 
-[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-on-steroids&branch=master&pipelineName=kibana-on-steroids&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-on-steroids/builds?filter=trigger:build;branch:master;service:5a25b41734a1310001196d8e~kibana-on-steroids)
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-elassandra&branch=master&pipelineName=kibana-elassandra&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-elassandra/builds?filter=trigger:build;branch:master;service:5a47b81ef19c2200011010f3~kibana-elassandra)
 
 ##### Usage (compose)
 ```
@@ -9,11 +9,11 @@ docker-compose up -d
 ```
 ##### Usage (manual)
 ```
-docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/kibana-steroids:master
+docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/kibana-elassandra:master
 ```
-
+##### Requires:
+  * **Elassandra** 5.5.0.9 or higher
 ##### Includes:
-
   * **Kibana** 5.5.0
      * **SENTINL** App for Alerting
     * Network Vis
