@@ -12,7 +12,7 @@ docker-compose up -d
 docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/kibana-steroids:master
 ```
 
-##### Features
+##### Includes:
 
   * **Kibana** 5.5.0
      * **SENTINL** App for Alerting
@@ -26,6 +26,7 @@ docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/ki
     * Mapster Plugin
     * Kibana API  
     * Custom Elassandra Theme
+    * _and more!_
   
  ----------- 
 
