@@ -1,5 +1,5 @@
 version: '2.1'
-# Elassandra Single-Node + Kibana Steroids
+# Elassandra Single-Node + Kibana Steroids + Auth (defaults)
 services:
   elassandra-seed:
     container_name: elassandra-seed-node
@@ -11,8 +11,8 @@ services:
         retries: 10
 
   elassandra-kibana:
-    container_name: elassandra-kibana
-    image: qxip/kibana-steroids:master
+    container_name: kibana-elassandra
+    image: qxip/kibana-elassandra:master
     ports:
       - "5601:5601"
     environment:
