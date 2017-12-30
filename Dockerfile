@@ -69,7 +69,7 @@ RUN cd /tmp \
 RUN kibana-plugin install https://github.com/seadiaz/computed-columns/releases/download/0.7.0/computed-columns-0.7.0-5.5.0.zip
 
 RUN cd /tmp \
-  && curl https://transfer.sh/ik4LP/kbn-auth-plug.zip -o kbn-auth.zip \
+  && curl https://github.com/lmangani/kibana-elassandra/releases/download/5.5.0/kbn-authentication-plugin.zip -o kbn-auth.zip \
   && kibana-plugin install file:///tmp/kbn-auth.zip \
   && chmod 775 ${PLUGIN_PATH}/kbn-authentication-plugin/users.json \
   && sed -Ei "s/(\"enabled\":).*$/\1 \"false\",/" ${PLUGIN_PATH}/kbn-authentication-plugin/config.json \
