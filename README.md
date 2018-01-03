@@ -1,5 +1,7 @@
+<img width=150 src="https://rlv.zcache.com/rainbow_letter_k_cutout-r4d04a65810f04edcbfd300bc8a9bff0b_x7saz_8byvr_324.jpg">
+
 # Kibana for [Elassandra](github.com/strapdata/elassandra)
-#### Dockerized Kibana 5.5.0 on Steroids, Optimized for [Elassandra](github.com/strapdata/elassandra)
+#### Dockerized Kibana 5.5.0 on Plugin Steroids, Optimized for [Elassandra](github.com/strapdata/elassandra)
 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-elassandra&branch=master&pipelineName=kibana-elassandra&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-elassandra/builds?filter=trigger:build;branch:master;service:5a47b81ef19c2200011010f3~kibana-elassandra)
 
@@ -8,8 +10,7 @@
   
 ##### Provides:
 
-<img src="https://img.shields.io/badge/Kibana-5.5.0-blue.svg"/> <img src="https://img.shields.io/badge/theme-Elassandra-blue.svg"/> <img src="https://img.shields.io/badge/app-Sentinl-yellow.svg"/> <img src="https://img.shields.io/badge/vis-Network-orange.svg"/> <img src="https://img.shields.io/badge/vis-Sankey-orange.svg"/> <img src="https://img.shields.io/badge/vis-Swimlane-orange.svg"/> <img src="https://img.shields.io/badge/vis-Timeline-orange.svg"/> <img src="https://img.shields.io/badge/plugin-Search%20Tables-green.svg"/> <img src="https://img.shields.io/badge/plug-Computed%20Columns-green.svg"/> <img src="https://img.shields.io/badge/plug-Time%20Select-green.svg"/> <img src="https://img.shields.io/badge/plug-Heatmap%20Timeline-green.svg"/> <img src="https://img.shields.io/badge/plug-Enhanced%20Tilemap-green.svg"/> <img src="https://img.shields.io/badge/vis-Mapster-orange.svg"/> <img src="https://img.shields.io/badge/api-Kibana%20API-red.svg"/>
-  
+<img src="https://img.shields.io/badge/Kibana-5.5.0-blue.svg"/> <img src="https://img.shields.io/badge/theme-Elassandra-blue.svg"/> <img src="https://img.shields.io/badge/app-Sentinl-yellow.svg"/> <img src="https://img.shields.io/badge/vis-Network-orange.svg"/> <img src="https://img.shields.io/badge/vis-Sankey-orange.svg"/> <img src="https://img.shields.io/badge/vis-Swimlane-orange.svg"/> <img src="https://img.shields.io/badge/vis-Timeline-orange.svg"/> <img src="https://img.shields.io/badge/vis-Mapster-orange.svg"/> <img src="https://img.shields.io/badge/plugin-Search%20Tables-green.svg"/> <img src="https://img.shields.io/badge/plug-Computed%20Columns-green.svg"/> <img src="https://img.shields.io/badge/plug-Time%20Select-green.svg"/> <img src="https://img.shields.io/badge/plug-Heatmap%20Timeline-green.svg"/> <img src="https://img.shields.io/badge/plug-Enhanced%20Tilemap-green.svg"/> <img src="https://img.shields.io/badge/api-Kibana%20API-red.svg"/>  <img src="https://img.shields.io/badge/api-Authentication%20Plugin-purple.svg"/> 
 
 ##### Usage (compose)
 ```
@@ -40,3 +41,5 @@ Elasticsearch and Kibana are trademarks of Elasticsearch BV, registered in the U
 Elassandra is a trademark of Strapdata SAS.
 
 Sentinl is a trademark of QXIP BV and Siren Solutions.
+
+All rights reserved by their respective owners. 
