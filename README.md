@@ -1,7 +1,15 @@
 # Kibana for [Elassandra](github.com/strapdata/elassandra)
-#### Dockerized Kibana 5.5. on Steroids, Optimized for [Elassandra](github.com/strapdata/elassandra)
+#### Dockerized Kibana 5.5.0 on Steroids, Optimized for [Elassandra](github.com/strapdata/elassandra)
 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-elassandra&branch=master&pipelineName=kibana-elassandra&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-elassandra/builds?filter=trigger:build;branch:master;service:5a47b81ef19c2200011010f3~kibana-elassandra)
+
+##### Requires:
+<img src="https://img.shields.io/badge/Elassandra- 5.5.0.9+-blue.svg"/>
+  
+##### Provides:
+
+<img src="https://img.shields.io/badge/Kibana-5.5.0-blue.svg"/> <img src="https://img.shields.io/badge/theme-Elassandra-blue.svg"/> <img src="https://img.shields.io/badge/app-Sentinl-yellow.svg"/> <img src="https://img.shields.io/badge/vis-Network-orange.svg"/> <img src="https://img.shields.io/badge/vis-Sankey-orange.svg"/> <img src="https://img.shields.io/badge/vis-Swimlane-orange.svg"/> <img src="https://img.shields.io/badge/vis-Timeline-orange.svg"/> <img src="https://img.shields.io/badge/plugin-Search%20Tables-green.svg"/> <img src="https://img.shields.io/badge/plug-Computed%20Columns-green.svg"/> <img src="https://img.shields.io/badge/plug-Time%20Select-green.svg"/> <img src="https://img.shields.io/badge/plug-Heatmap%20Timeline-green.svg"/> <img src="https://img.shields.io/badge/plug-Enhanced%20Tilemap-green.svg"/> <img src="https://img.shields.io/badge/vis-Mapster-orange.svg"/> <img src="https://img.shields.io/badge/api-Kibana%20API-red.svg"/>
+  
 
 ##### Usage (compose)
 ```
@@ -11,23 +19,7 @@ docker-compose up -d
 ```
 docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/kibana-elassandra:master
 ```
-##### Requires:
-  * **Elassandra** 5.5.0.9 or higher
-##### Includes:
-  * **Kibana** 5.5.0
-     * **SENTINL** App for Alerting
-    * Network Vis
-    * Sankey Vis
-    * Swimlane Vis
-    * Search Tables Plugin
-    * Computed Columns Plugin
-    * Time Plugin
-    * Timeline Plugin
-    * Mapster Plugin
-    * Kibana API  
-    * Custom Elassandra Theme
-    * _and more!_
-  
+
  ----------- 
 
 ### Style
