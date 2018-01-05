@@ -101,3 +101,8 @@ RUN cd /tmp \
   && wget https://github.com/sw-jung/kibana_markdown_doc_view/releases/download/v5.5.0/markdown_doc_view-5.5.0.zip \
   && kibana-plugin install file:///tmp/markdown_doc_view-5.5.0.zip \
   && rm -rf /tmp/*
+
+RUN cd /tmp \
+  && wget https://github.com/sw-jung/kibana_notification_center/releases/download/v5.5.0/notification_center-5.5.0.zip \
+  && kibana-plugin install file:///tmp/notification_center-5.5.0.zip \
+  && rm -rf /tmp/*
