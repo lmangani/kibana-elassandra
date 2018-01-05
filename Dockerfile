@@ -93,10 +93,10 @@ RUN cd /tmp \
   && kibana-plugin install file:///tmp/markdown_doc_view-5.5.0.zip \
   && rm -rf /tmp/*
 
-RUN cd /tmp \
-  && wget https://github.com/sw-jung/kibana_notification_center/releases/download/v5.5.0/notification_center-5.5.0.zip \
-  && kibana-plugin install file:///tmp/notification_center-5.5.0.zip \
-  && rm -rf /tmp/*
+#RUN cd /tmp \
+#  && wget https://github.com/sw-jung/kibana_notification_center/releases/download/v5.5.0/notification_center-5.5.0.zip \
+#  && kibana-plugin install file:///tmp/notification_center-5.5.0.zip \
+#  && rm -rf /tmp/*
   
 #RUN cd /tmp \
 #   && wget -O logtrail.zip https://github.com/sivasamyk/logtrail/releases/download/v0.1.21/logtrail-5.6.0-0.1.21.zip \
