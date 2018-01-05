@@ -78,14 +78,14 @@ RUN cd /tmp \
   && kibana-plugin install file:///tmp/enhanced-tilemap-v2017-10-20-5.5.zip \
   && rm -rf /tmp/*
   
- RUN cd /tmp \
-  && wget https://github.com/JacobBrandt/timeline_heatmap/archive/5.1.zip \
-  && unzip 5.1.zip && mkdir /tmp/kibana \
-  && mv timeline_heatmap-5.1 kibana/timeline_heatmap \
-  && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" kibana/timeline_heatmap/package.json \
-  && zip -r timeline_heatmap-5.5.zip kibana \
-  && kibana-plugin install file:///tmp/timeline_heatmap-5.5.zip \
-  && rm -rf /tmp/*
+# RUN cd /tmp \
+#  && wget https://github.com/JacobBrandt/timeline_heatmap/archive/5.1.zip \
+#  && unzip 5.1.zip && mkdir /tmp/kibana \
+#  && mv timeline_heatmap-5.1 kibana/timeline_heatmap \
+#  && sed -Ei "s/(\"version\":).*$/\1 \"$KIBANA_VERSION\"/" kibana/timeline_heatmap/package.json \
+#  && zip -r timeline_heatmap-5.5.zip kibana \
+#  && kibana-plugin install file:///tmp/timeline_heatmap-5.5.zip \
+#  && rm -rf /tmp/*
 
 RUN cd /tmp \
   && wget -O metric-percent.zip https://github.com/amannocci/kibana-plugin-metric-percent/archive/master.zip \
