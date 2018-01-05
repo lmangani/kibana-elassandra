@@ -109,9 +109,9 @@ RUN cd /tmp \
   
 RUN cd /tmp \
    && wget -O logtrail.zip https://github.com/sivasamyk/logtrail/releases/download/v0.1.21/logtrail-5.6.0-0.1.21.zip \
-   && mkdir kibana/logtrail \
-   && unzip -p logtrail.zip kibana/logtrail/package.json > kibana/logtrail/package.json \
-   && sed -Ei "s/5.6.0/5.5.0/g" kibana/logtrail/package.json \
+   && mkdir /tmp/kibana/logtrail \
+   && unzip logtrail.zip kibana/logtrail/package.json \
+   && sed -Ei "s/5.6.0/5.5.0/g" /tmp/kibana/logtrail/package.json \
    && zip logtrail.zip kibana/logtrail/package.json \
    && kibana-plugin install file:///tmp/logtrail.zip \
    && rm -rf /tmp/*
