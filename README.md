@@ -1,4 +1,4 @@
-<img width=150 src="https://rlv.zcache.com/rainbow_letter_k_cutout-r4d04a65810f04edcbfd300bc8a9bff0b_x7saz_8byvr_324.jpg">
+<img width=150 src="https://user-images.githubusercontent.com/1423657/34592690-3a8b12e0-f1c6-11e7-8b40-669934b53007.gif">
 
 # Kibana for [Elassandra](github.com/strapdata/elassandra)
 #### Dockerized Kibana 5.5.0 on Plugin Steroids, Optimized for [Elassandra](github.com/strapdata/elassandra)
