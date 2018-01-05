@@ -106,3 +106,11 @@ RUN cd /tmp \
   && wget https://github.com/sw-jung/kibana_notification_center/releases/download/v5.5.0/notification_center-5.5.0.zip \
   && kibana-plugin install file:///tmp/notification_center-5.5.0.zip \
   && rm -rf /tmp/*
+  
+RUN cd /tmp \
+   && wget -O logtrail.zip https://github.com/sivasamyk/logtrail/releases/download/v0.1.21/logtrail-5.6.0-0.1.21.zip \
+   && unzip -p logtrail.zip kibana/logtrail/package.json > kibana/logtrail/package.json \
+   && sed -Ei "s/5.6.0/5.5.0/g" kibana/logtrail/package.json \
+   && zip logtrail.zip kibana/logtrail/package.json \
+   && kibana-plugin install file:///tmp/logtrail.zip \
+   && rm -rf /tmp/*
