@@ -29,8 +29,8 @@ docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/ki
 ### Sentinl
 <img src="https://i.imgur.com/V9wDZak.gif" width="600" />
 
-### Vis
-<img src="https://user-images.githubusercontent.com/1423657/34628938-7a77f1de-f266-11e7-8ec0-c03327499f78.png" width="600" />
+### Visualization
+<img src="https://user-images.githubusercontent.com/1423657/34632842-283420ca-f278-11e7-8fda-c4713faeb8ab.png" width="600" />
 
 
 ##### Acknowledgement
