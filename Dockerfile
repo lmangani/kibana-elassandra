@@ -86,3 +86,18 @@ RUN cd /tmp \
   && zip -r timeline_heatmap-5.5.zip kibana \
   && kibana-plugin install file:///tmp/timeline_heatmap-5.5.zip \
   && rm -rf /tmp/*
+
+RUN cd /tmp \
+  && wget -O metric-percent.zip https://github.com/amannocci/kibana-plugin-metric-percent/archive/master.zip \
+  && unzip metric-percent.zip && mv kibana-plugin-metric-percent-master ${PLUGIN_PATH}/metric-percent \
+  && rm -rf /tmp/*
+  
+RUN cd /tmp \
+  && wget https://github.com/nyurik/kibana-vega-vis/releases/download/v0.5.0/vega_vis-0.5.0--for-Kibana-5.5.0.zip \
+  && kibana-plugin install file:///tmp/vega_vis-0.5.0--for-Kibana-5.5.0.zip \
+  && rm -rf /tmp/*
+  
+RUN cd /tmp \
+  && wget https://github.com/sw-jung/kibana_markdown_doc_view/releases/download/v5.5.0/markdown_doc_view-5.5.0.zip \
+  && kibana-plugin install file:///tmp/markdown_doc_view-5.5.0.zip \
+  && rm -rf /tmp/*
