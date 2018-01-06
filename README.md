@@ -3,13 +3,12 @@
 # Kibana for [Elassandra](github.com/strapdata/elassandra)
 #### Dockerized Kibana 5.5.0 on Plugin Steroids, Optimized for [Elassandra](github.com/strapdata/elassandra)
 
-[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-elassandra&branch=master&pipelineName=kibana-elassandra&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-elassandra/builds?filter=trigger:build;branch:master;service:5a47b81ef19c2200011010f3~kibana-elassandra)
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-elassandra&branch=master&pipelineName=kibana-elassandra&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-elassandra/builds?filter=trigger:build;branch:master;service:5a47b81ef19c2200011010f3~kibana-elassandra) <img src="https://img.shields.io/docker/pulls/qxip/kibana-elassandra.svg"/>  
 
 ##### Requires:
-<img src="https://img.shields.io/badge/Elassandra- 5.5.0.9+-blue.svg"/>
-  
-##### Provides:
+<img src="https://img.shields.io/badge/Elassandra- 5.5.0.9+-blue.svg"/> <img src="https://img.shields.io/docker/pulls/strapdata/elassandra.svg"/>  
 
+##### Provides:
 <img src="https://img.shields.io/badge/Kibana-5.5.0-blue.svg"/> <img src="https://img.shields.io/badge/theme-Elassandra-blue.svg"/> <img src="https://img.shields.io/badge/app-Sentinl-yellow.svg"/> <img src="https://img.shields.io/badge/app-LogTrail-yellow.svg"/> <img src="https://img.shields.io/badge/vis-Network-orange.svg"/> <img src="https://img.shields.io/badge/vis-Sankey-orange.svg"/> <img src="https://img.shields.io/badge/vis-Swimlane-orange.svg"/> <img src="https://img.shields.io/badge/vis-Timeline-orange.svg"/> <img src="https://img.shields.io/badge/vis-Mapster-orange.svg"/> <img src="https://img.shields.io/badge/vis-Vega-orange.svg"/> <img src="https://img.shields.io/badge/plugin-Search%20Tables-green.svg"/> <img src="https://img.shields.io/badge/plugin-Computed%20Columns-green.svg"/> <img src="https://img.shields.io/badge/plugin-Time%20Select-green.svg"/> <img src="https://img.shields.io/badge/plugin-Enhanced%20Tilemap-green.svg"/> <img src="https://img.shields.io/badge/plugin-Metric%20Percent-green.svg"/> <img src="https://img.shields.io/badge/plugin-Markdown%20Doc-green.svg"/> <img src="https://img.shields.io/badge/plugin-Metric%20Percent-green.svg"/> <img src="https://img.shields.io/badge/api-Kibana%20API-red.svg"/> <img src="https://img.shields.io/badge/api-Auth%20Plugin%20LDAP-purple.svg"/> 
 
 ##### Usage (compose)
