@@ -1,0 +1,28 @@
+version: '2.1'
+# Elassandra Single-Node + Kibana Steroids + Auth (defaults)
+services:
+  elassandra-seed:
+    container_name: elassandra-seed-node
+    image: strapdata/elassandra:5.5.0.9
+    healthcheck:
+        test: cqlsh -e "?" --cqlversion="3.4.4"
+        interval: 5s
+        timeout: 10s
+        retries: 10
+
+  elassandra-kibana:
+    container_name: kibana-elassandra
+    image: qxip/kibana-elassandra:auth
+    ports:
+      - "5601:5601"
+    environment:
+      - "ELASTICSEARCH_URL=http://elassandra-seed:9200"
+      - "XPACK_MONITORING_ENABLED=false"
+      - "ADMIN_USER=admin"
+      - "ADMIN_PASS=elassandra"
+#    volumes:
+#      - ./config.json:/usr/share/kibana/plugins/kbn-authentication-plugin/config.json
+#      - ./users.json:/usr/share/kibana/plugins/kbn-authentication-plugin/users.json
+    depends_on:
+      elassandra-seed:
+        condition: service_healthy
