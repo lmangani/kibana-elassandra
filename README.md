@@ -23,17 +23,23 @@ docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/ki
 
  ----------- 
 
-##### Usage w/ authentication
-The Authenticated version requires either ENV settings for admin, or custom configuration mapping for [LDAP](https://raw.githubusercontent.com/elasticfence/kbn-authentication-plugin/master/config.json) and/or local [users](https://raw.githubusercontent.com/elasticfence/kbn-authentication-plugin/master/users.json):
+### Authentication
+Auth version requires ENV admin details, or config mapping for [LDAP](https://raw.githubusercontent.com/elasticfence/kbn-authentication-plugin/master/config.json) and/or local [users](https://raw.githubusercontent.com/elasticfence/kbn-authentication-plugin/master/users.json):
 ```
 /usr/share/kibana/plugins/kbn-authentication-plugin/config.json
 /usr/share/kibana/plugins/kbn-authentication-plugin/users.json
 ```
 
-Initialize using custom compose file, after editing its details:
+##### Auth Usage (compose)
+Initialize using custom compose file, after editing user details:
 ```
 docker-compose -f docker-compose-auth.yml up -d
 ```
+##### Auth Usage (manual)
+```
+docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 -e ADMIN_USER=admin -e ADMIN_PASS=elassandra qxip/kibana-elassandra:auth
+```
+
  ----------- 
 
 ### Style
