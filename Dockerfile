@@ -80,8 +80,8 @@ RUN cd /tmp \
 RUN chown -R kibana:kibana /usr/share/kibana
 
 # Alias ADDUSER command (eval $ADDUSER username password)
-ENV ADDUSER="nodejs /usr/share/kibana/plugins/kbn-authentication-plugin/adduser.js"
-RUN ADDUSER username elassandra
+ENV ADDUSER="/usr/share/kibana/node/bin/node /usr/share/kibana/plugins/kbn-authentication-plugin/adduser.js"
+RUN $ADDUSER username elassandra
 
 RUN cd /tmp \
   && wget https://github.com/nreese/enhanced_tilemap/releases/download/v2017-10-20/enhanced-tilemap-v2017-10-20-5.5.zip \
