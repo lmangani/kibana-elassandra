@@ -114,3 +114,5 @@ RUN cd /tmp \
    && kibana-plugin install file:///tmp/logtrail.zip \
    && rm -rf /tmp/*
 
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
