@@ -77,4 +77,27 @@ RUN cd /tmp \
   && zip enhanced-tilemap-v2017-10-20-5.5.zip kibana/enhanced_tilemap/package.json \
   && kibana-plugin install file:///tmp/enhanced-tilemap-v2017-10-20-5.5.zip \
   && rm -rf /tmp/*
+
+RUN cd /tmp \
+  && wget -O metric-percent.zip https://github.com/amannocci/kibana-plugin-metric-percent/archive/master.zip \
+  && unzip metric-percent.zip && mv kibana-plugin-metric-percent-master ${PLUGIN_PATH}/metric-percent \
+  && rm -rf /tmp/*
   
+RUN cd /tmp \
+  && wget https://github.com/nyurik/kibana-vega-vis/releases/download/v0.5.0/vega_vis-0.5.0--for-Kibana-5.5.0.zip \
+  && kibana-plugin install file:///tmp/vega_vis-0.5.0--for-Kibana-5.5.0.zip \
+  && rm -rf /tmp/*
+  
+RUN cd /tmp \
+  && wget https://github.com/sw-jung/kibana_markdown_doc_view/releases/download/v5.5.0/markdown_doc_view-5.5.0.zip \
+  && kibana-plugin install file:///tmp/markdown_doc_view-5.5.0.zip \
+  && rm -rf /tmp/*
+
+RUN cd /tmp \
+   && wget -O logtrail.zip https://github.com/sivasamyk/logtrail/releases/download/v0.1.21/logtrail-5.6.0-0.1.21.zip \
+   && unzip logtrail.zip kibana/logtrail/package.json \
+   && sed -Ei "s/5.6.0/5.5.0/g" /tmp/kibana/logtrail/package.json \
+   && zip logtrail.zip kibana/logtrail/package.json \
+   && kibana-plugin install file:///tmp/logtrail.zip \
+   && rm -rf /tmp/*
+
