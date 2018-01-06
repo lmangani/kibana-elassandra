@@ -1,7 +1,16 @@
-# Kibana-on-Steroids
-### Optimized for [Elassandra](github.com/strapdata/elassandra)
+<img width=150 src="https://user-images.githubusercontent.com/1423657/34592690-3a8b12e0-f1c6-11e7-8b40-669934b53007.gif">
 
-[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-on-steroids&branch=master&pipelineName=kibana-on-steroids&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-on-steroids/builds?filter=trigger:build;branch:master;service:5a25b41734a1310001196d8e~kibana-on-steroids)
+# Kibana [![Elassandra](https://github.com/strapdata/elassandra/raw/v5.5.0-strapdata/elassandra-logo.png)](http://github.com/strapdata/elassandra)
+
+#### Dockerized Kibana 5.5.0 on Plugin Steroids, Optimized for [Elassandra 5.5.0.9+](github.com/strapdata/elassandra)
+
+[![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-elassandra&branch=master&pipelineName=kibana-elassandra&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-elassandra/builds?filter=trigger:build;branch:master;service:5a47b81ef19c2200011010f3~kibana-elassandra) <img src="https://img.shields.io/docker/pulls/qxip/kibana-elassandra.svg"/>  
+
+##### Requires:
+<img src="https://img.shields.io/badge/Elassandra- 5.5.0.9+-blue.svg"/> <img src="https://img.shields.io/docker/pulls/strapdata/elassandra.svg"/>  
+
+##### Provides:
+<img src="https://img.shields.io/badge/Kibana-5.5.0-blue.svg"/> <img src="https://img.shields.io/badge/theme-Elassandra-blue.svg"/> <img src="https://img.shields.io/badge/app-Sentinl-yellow.svg"/> <img src="https://img.shields.io/badge/app-LogTrail-yellow.svg"/> <img src="https://img.shields.io/badge/vis-Network-orange.svg"/> <img src="https://img.shields.io/badge/vis-Sankey-orange.svg"/> <img src="https://img.shields.io/badge/vis-Swimlane-orange.svg"/> <img src="https://img.shields.io/badge/vis-Timeline-orange.svg"/> <img src="https://img.shields.io/badge/vis-Mapster-orange.svg"/> <img src="https://img.shields.io/badge/vis-Vega-orange.svg"/> <img src="https://img.shields.io/badge/plugin-Search%20Tables-green.svg"/> <img src="https://img.shields.io/badge/plugin-Computed%20Columns-green.svg"/> <img src="https://img.shields.io/badge/plugin-Time%20Select-green.svg"/> <img src="https://img.shields.io/badge/plugin-Enhanced%20Tilemap-green.svg"/> <img src="https://img.shields.io/badge/plugin-Metric%20Percent-green.svg"/> <img src="https://img.shields.io/badge/plugin-Markdown%20Doc-green.svg"/> <img src="https://img.shields.io/badge/plugin-Metric%20Percent-green.svg"/> <img src="https://img.shields.io/badge/api-Kibana%20API-red.svg"/> <img src="https://img.shields.io/badge/api-Auth%20Plugin%20LDAP-purple.svg"/> 
 
 ##### Usage (compose)
 ```
@@ -9,24 +18,22 @@ docker-compose up -d
 ```
 ##### Usage (manual)
 ```
-docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/kibana-steroids:master
+docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/kibana-elassandra:master
 ```
 
-##### Features
+ ----------- 
 
-  * **Kibana** 5.5.0
-     * **SENTINL** App for Alerting
-    * Network Vis
-    * Sankey Vis
-    * Swimlane Vis
-    * Search Tables Plugin
-    * Computed Columns Plugin
-    * Time Plugin
-    * Timeline Plugin
-    * Mapster Plugin
-    * Kibana API  
-    * Custom Elassandra Theme
-  
+##### Usage w/ authentication
+The Authenticated version requires either ENV settings for admin, or custom configuration mapping for [LDAP](https://raw.githubusercontent.com/elasticfence/kbn-authentication-plugin/master/config.json) and/or local [users](https://raw.githubusercontent.com/elasticfence/kbn-authentication-plugin/master/users.json):
+```
+/usr/share/kibana/plugins/kbn-authentication-plugin/config.json
+/usr/share/kibana/plugins/kbn-authentication-plugin/users.json
+```
+
+Initialize using custom compose file, after editing its details:
+```
+docker-compose -f docker-compose-auth.yml up -d
+```
  ----------- 
 
 ### Style
@@ -35,8 +42,8 @@ docker run -d -e "ELASTICSEARCH_URL=http://elassandra:9200" -p 5061:5061 qxip/ki
 ### Sentinl
 <img src="https://i.imgur.com/V9wDZak.gif" width="600" />
 
-### Vis
-<img src="https://user-images.githubusercontent.com/1423657/33936248-3551d51c-dfff-11e7-84f6-083ee32480f3.png" width="600" />
+### Visualization
+<img src="https://user-images.githubusercontent.com/1423657/34632842-283420ca-f278-11e7-8fda-c4713faeb8ab.png" width="600" />
 
 
 ##### Acknowledgement
@@ -47,3 +54,5 @@ Elasticsearch and Kibana are trademarks of Elasticsearch BV, registered in the U
 Elassandra is a trademark of Strapdata SAS.
 
 Sentinl is a trademark of QXIP BV and Siren Solutions.
+
+All rights reserved by their respective owners. 
