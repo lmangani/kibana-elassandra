@@ -2,7 +2,7 @@
 
 # Kibana [![Elassandra](https://github.com/strapdata/elassandra/raw/v5.5.0-strapdata/elassandra-logo.png)](http://github.com/strapdata/elassandra)
 
-#### Dockerized Kibana 5.5.0 on Plugin Steroids, Optimized for [Elassandra 5.5.0.9+](github.com/strapdata/elassandra)
+#### Dockerized Kibana 5.5.0 on Plugin Steroids, Optimized for [Elassandra 5.5.0.9+](https://github.com/strapdata/elassandra)
 
 [![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=lmangani&repoName=kibana-elassandra&branch=master&pipelineName=kibana-elassandra&accountName=lmangani&type=cf-1)]( https://g.codefresh.io/repositories/lmangani/kibana-elassandra/builds?filter=trigger:build;branch:master;service:5a47b81ef19c2200011010f3~kibana-elassandra) <img src="https://img.shields.io/docker/pulls/qxip/kibana-elassandra.svg"/>  
 
