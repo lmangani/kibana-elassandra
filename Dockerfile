@@ -101,3 +101,7 @@ RUN cd /tmp \
    && kibana-plugin install file:///tmp/logtrail.zip \
    && rm -rf /tmp/*
 
+RUN cd /tmp \
+  && wget hhttps://github.com/clamarque/kibana_health_metric_vis/releases/download/v5.5/kibana_health_metric_vis-5.5.0.zip \
+  && kibana-plugin install file:///tmp/kibana_health_metric_vis-5.5.0.zip \
+  && rm -rf /tmp/*
