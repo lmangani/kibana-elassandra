@@ -101,3 +101,16 @@ RUN cd /tmp \
    && kibana-plugin install file:///tmp/logtrail.zip \
    && rm -rf /tmp/*
 
+RUN cd /tmp \
+  && wget https://github.com/lmangani/gun-cassandra/archive/master.zip \
+  && unzip master.zip && mv gun-cassandra-master /usr/src/gun-cassandra \
+  && cd /usr/src/gun-cassandra && npm install
+  && rm -rf /tmp/* \
+  
+  && cd /tmp \
+  && wget https://github.com/lmangani/gun-elastic/archive/master.zip \
+  && unzip master.zip && mv gun-elastic-master /usr/src/gun-elastic \
+  && cd /usr/src/gun-elastic && npm install \
+  && rm -rf /tmp/*
+  
+  
