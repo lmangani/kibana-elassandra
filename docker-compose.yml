@@ -17,7 +17,7 @@ services:
 
   elassandra-kibana:
     container_name: kibana-elassandra
-    image: qxip/kibana-elassandra:master
+    image: qxip/kibana-elassandra:gun
     ports:
       - "5601:5601"
     environment:
