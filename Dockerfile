@@ -104,7 +104,7 @@ RUN cd /tmp \
 RUN cd /tmp \
   && wget https://github.com/lmangani/gun-cassandra/archive/master.zip \
   && unzip master.zip && mv gun-cassandra-master /usr/src/gun-cassandra \
-  && cd /usr/src/gun-cassandra && npm install
+  && cd /usr/src/gun-cassandra && npm install \
   && rm -rf /tmp/* \
   
   && cd /tmp \
