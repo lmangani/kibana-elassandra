@@ -5,8 +5,6 @@ ENV CONTAINER_VERSION="6.2.4"
 ENV KIBANA_VERSION="6.2.4"
 ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
-
-RUN apt-get update && apt-get install -y zip unzip curl 
   
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-5.5/sentinl-v${KIBANA_VERSION}.zip
 
