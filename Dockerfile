@@ -8,6 +8,6 @@ ENV PLUGIN_PATH=/usr/share/kibana/plugins
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-6.2.3-3/sentinl-v6.2.4.zip
 
 # Hotpatch to keep SENTINL Watcher IDs < 11 chars
-RUN sed -Ei "s/substr(2, 100)/substr(2, 3)/g" ${PLUGIN_PATH}/sentinl/public/services/watcher.js
+# RUN sed -Ei "s/substr(2, 100)/substr(2, 3)/g" ${PLUGIN_PATH}/sentinl/public/services/watcher.js
 
 
