@@ -1,7 +1,7 @@
-FROM kibana:6.2.3
+FROM kibana:6.2
 LABEL maintainer "Lorenzo Mangani <lorenzo.mangani@gmail.com>"
 
-ENV CONTAINER_VERSION="6.2.3.1"
+ENV CONTAINER_VERSION="6.2.3"
 ENV KIBANA_VERSION="6.2.3"
 ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
