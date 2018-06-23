@@ -1,8 +1,8 @@
-FROM kibana:6.2
+FROM docker.elastic.co/kibana/kibana-oss:6.2.4
 LABEL maintainer "Lorenzo Mangani <lorenzo.mangani@gmail.com>"
 
-ENV CONTAINER_VERSION="6.2.3"
-ENV KIBANA_VERSION="6.2.3"
+ENV CONTAINER_VERSION="6.2.4"
+ENV KIBANA_VERSION="6.2.4"
 ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
 
