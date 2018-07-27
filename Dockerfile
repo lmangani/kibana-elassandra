@@ -12,3 +12,6 @@ RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/dow
 
 # Hotpatch to keep SENTINL Watcher IDs < 11 chars
 # RUN sed -Ei "s/substr(2, 100)/substr(2, 3)/g" ${PLUGIN_PATH}/sentinl/public/services/watcher.js
+
+RUN kibana-plugin install https://github.com/lmangani/kibana_diagram/raw/master/dist/kibana_diagram-6.2.4.zip
+RUN kibana-plugin install https://github.com/lmangani/timelion-influxdb/raw/master/dist/timelion-influxdb-1.0.0.zip
