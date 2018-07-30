@@ -23,4 +23,4 @@ RUN sed -i 's/image\/svg+xml.*");/image\/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwLjAw
 # custom style
 RUN sed -i 's/title Kibana/title HOMER Kibana/g' /usr/share/kibana/src/ui/ui_render/views/chrome.jade
 RUN sed -i "s/bundleFile('commons.style.css')/bundleFile('commons.style.css'),bundleFile('gradiant_style.style.css')/g" /usr/share/kibana/src/ui/ui_render/views/ui_app.jade
-RUN bin/kibana-plugin install https://github.com/qxip/Kibana-style-plugin/archive/v6.2.4.zip
+RUN bin/kibana-plugin install https://transfer.sh/SDXve/gradiant-style.zip
