@@ -1,17 +1,11 @@
 FROM docker.elastic.co/kibana/kibana-oss:6.2.4
 LABEL maintainer "Lorenzo Mangani <lorenzo.mangani@gmail.com>"
 
-ENV INTERNAL="dev624-4"
+ENV INTERNAL="dev624-5"
 
 ENV KIBANA_VERSION="6.2.4"
 ENV KIBANA_PATH=/usr/share/kibana
 ENV PLUGIN_PATH=/usr/share/kibana/plugins
-  
-#RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-6.2.3-3/sentinl-v6.2.4.zip
-RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-6.2.4-pre-0/sentinl-v6.2.4.zip
-
-# Hotpatch to keep SENTINL Watcher IDs < 11 chars
-# RUN sed -Ei "s/substr(2, 100)/substr(2, 3)/g" ${PLUGIN_PATH}/sentinl/public/services/watcher.js
 
 RUN kibana-plugin install https://github.com/lmangani/kibana_diagram/raw/master/dist/kibana_diagram-6.2.4.zip
 RUN kibana-plugin install https://github.com/lmangani/timelion-influxdb/raw/master/dist/timelion-influxdb-1.0.0.zip
@@ -23,4 +17,13 @@ RUN sed -i 's/image\/svg+xml.*");/image\/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAuMDAw
 # custom style
 RUN sed -i 's/title Kibana/title HOMER Kibana/g' /usr/share/kibana/src/ui/ui_render/views/chrome.jade
 RUN sed -i "s/bundleFile('commons.style.css')/bundleFile('commons.style.css'),bundleFile('gradiant_style.style.css')/g" /usr/share/kibana/src/ui/ui_render/views/ui_app.jade
-RUN bin/kibana-plugin install https://transfer.sh/DOWws/gradiant-style.zip
+RUN bin/kibana-plugin install https://transfer.sh/CiGO7/gradiant-style.zip
+
+# Add your kibana plugins setup here
+RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-6.2.4-pre-0/sentinl-v6.2.4.zip
+
+USER root
+RUN yum update -y && yum install -y fontconfig freetype net-tools && yum clean all
+
+USER kibana
+
