@@ -13,6 +13,8 @@ RUN kibana-plugin install https://github.com/lmangani/kibana-kable/raw/master/di
 
 RUN kibana-plugin install https://github.com/sirensolutions/sentinl/releases/download/tag-6.2.4-pre-0/sentinl-v6.2.4-2.zip
 
+RUN kibana-plugin install https://github.com/lmangani/timelion-omit/raw/master/dist/timelion-omit-1.0.0.zip
+
 USER root
 RUN yum update -y && yum install -y fontconfig freetype net-tools && yum clean all
 USER kibana
